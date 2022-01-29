@@ -79,12 +79,13 @@ empleadosRouter.put('/:id', (req, res) => {
 
     empleadoEditado._id = id //reasignamos el id para sobreescribir el documento en la DB
 
-    return Empleado.findByIdAndUpdate(id, {
-         $set: { name: req.body.nombre },
-         $set: { apellido: req.body.apellido },
-         $set: { dni: req.body.dni },        
-    }, 
-    { new: true })
+    return Empleado.findByIdAndUpdate(id, 
+            {$set: {
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                dni: req.body.dni
+            }
+        }, { new: true })
                     .then( empleadoActualizado => {
                         return res.status(200).json(empleadoActualizado)
                     })
