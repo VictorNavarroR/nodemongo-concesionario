@@ -1,6 +1,7 @@
 # nodemongo-consecionario
 
 --Scripts
+
     npm run start -> production
     
     npm run dev -> development(nodemon)
