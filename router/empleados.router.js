@@ -70,14 +70,6 @@ empleadosRouter.post('/', (req, res, next) => {
 //actualizar empleado
 empleadosRouter.put('/:id', (req, res) => {
     const id = req.params.id
-    
-    const empleadoEditado = new Empleado({
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
-        dni: req.body.dni
-    })
-
-    empleadoEditado._id = id //reasignamos el id para sobreescribir el documento en la DB
 
     return Empleado.findByIdAndUpdate(id, 
             {$set: {
